@@ -14,6 +14,7 @@ void vote();
 void endVote();
 void clearDatabase();
 void clearVote();
+void clearData();
 
 int main() {
     while(1) {
@@ -219,8 +220,22 @@ void vote() {
 }
 
 void endVote() {
+    FILE * fp = fopen("v.ote", "r");
+    char line[20];
+    int A[2] = {0};
+    int B[2] = {0};
+    int i = 0;
+    while(fgets(line, sizeof(line), fp)) {
+        sscanf(line, "%d %d", &A[i], &B[i]);
+        i++;
+    }
+    fclose(fp);
+    if(B[0] > B[1]) printf("Participant A won\n\n");
+    else if(B[0] < B[1]) printf("Participant B won\n\n");
+    else printf("Draw\n\n");
     clearDatabase();
     clearVote();
+    clearData();
 }
 
 void clearDatabase() {
@@ -230,5 +245,14 @@ void clearDatabase() {
 
 void clearVote() {
     FILE * fp = fopen("v.ote", "w");
+    fprintf(fp, "1\t 0\n");
+    fprintf(fp, "2\t 0\n");
+    fclose(fp);
+}
+
+void clearData() {
+    FILE * fp = fopen("d.ata", "w");
+    fprintf(fp, "1\t 0\n");
+    fprintf(fp, "2\t 0\n");
     fclose(fp);
 }
