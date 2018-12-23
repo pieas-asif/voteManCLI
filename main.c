@@ -1,3 +1,15 @@
+/*
+    Name: voteManCLI
+    Description: This is a voting application written in C.
+    Author: Shaman Sharif
+    Github Username: pieas-asif
+    License: GPL-3.0 ( https://www.gnu.org/licenses/gpl-3.0.txt )
+    Version: 0.1 (alpha)
+    Copyright:  Shaman Sharif, Student of Northern University, hereby
+                disclaims all copyright interest in the program
+                “voteManCLI” written by Shaman Sharif.
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -17,6 +29,11 @@ void clearVote();
 void clearData();
 
 int main() {
+    // this is for the opening screen.
+    // it takes only one input .
+    // which routes into the login function.
+    // the logout or exit function is not
+    // written intentionally.
     while(1) {
         int i;
         system("cls");
@@ -32,6 +49,14 @@ int main() {
 }
 
 void login() {
+    // this is the login function.
+    // it takes two integer inputs.
+    // one for id and one for password.
+    // and a build in login for admin.
+    // inside admin there are two integers,
+    // one for admin functions and one for
+    // status which gives us status about
+    // removing a id from database.
     int id, pass, i, status;
     printf("Enter Id: ");
     scanf("%d", &id);
@@ -74,6 +99,11 @@ void login() {
 }
 
 void checkLogin(int id, int pin) {
+    // this function takes two parameters
+    // which checks database.txt for
+    // similer id and password.
+    // it also has a login status
+    // to check login is successful or not.
     int dbid, dbpn, loginStatus = 0, rs;
     FILE* file = fopen("database.txt", "r");
     char line[256];
@@ -99,6 +129,8 @@ void checkLogin(int id, int pin) {
 
 
 void insertVoter() {
+    // this function is used for inserting voter
+    // to the database.
     system("cls"); // system("cls") in windows
     int id, pin, choice;
     FILE* file = fopen("database.txt", "a");
@@ -124,6 +156,8 @@ void insertVoter() {
 }
 
 int idCheck(int id) {
+    // this function is for checking the new voters id
+    // is valid or not.
     int dbid, dbpn;
     FILE* file = fopen("database.txt", "r");
     char line[256];
@@ -141,6 +175,9 @@ int idCheck(int id) {
 }
 
 int removeVoter(int id) {
+    // this function is used for remove
+    // a voter by id. It also sends a
+    // status that it is removed or not.
     FILE* file = fopen("database.txt", "r");
     FILE* fp = fopen("d.ata", "w");
     char line[256];
@@ -173,6 +210,9 @@ int removeVoter(int id) {
 }
 
 void listVoter() {
+    // a simple function for listing all voter
+    // it should not be in the final version.
+    // as it shows both user ids and passwords
     FILE* file = fopen("database.txt", "r");
     int i;
     char line[256];
@@ -187,6 +227,7 @@ void listVoter() {
 }
 
 void vote() {
+    // this function is for voting.
     int vote_choice;
     puts("Enter 1 to vote for perticipate A");
     puts("Enter 2 to vote for perticipate B");
@@ -224,6 +265,9 @@ void vote() {
 }
 
 void endVote() {
+    // this will end the vote.
+    // announce the winner.
+    // reset all the databases.
     FILE * fp = fopen("v.ote", "r");
     char line[20];
     int A[2] = {0};
@@ -245,11 +289,13 @@ void endVote() {
 }
 
 void clearDatabase() {
+    // name says it all
     FILE * fp = fopen("database.txt", "w");
     fclose(fp);
 }
 
 void clearVote() {
+    // name says it all
     FILE * fp = fopen("v.ote", "w");
     fprintf(fp, "1\t 0\n");
     fprintf(fp, "2\t 0\n");
@@ -257,6 +303,7 @@ void clearVote() {
 }
 
 void clearData() {
+    // name says it all
     FILE * fp = fopen("d.ata", "w");
     fprintf(fp, "1\t 0\n");
     fprintf(fp, "2\t 0\n");
