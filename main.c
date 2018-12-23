@@ -19,7 +19,7 @@ void clearData();
 int main() {
     while(1) {
         int i;
-        system("clear");
+        system("cls");
         puts("Welcome");
         puts("------------------");
         puts("Enter 1 to LOGIN");
@@ -49,12 +49,14 @@ void login() {
         switch(i) {
             case 1:
                 insertVoter();
+                system("pause");
                 break;
             case 2:
                 printf("Enter ID to Delete: ");
                 scanf("%d", &uid);
                 status = removeVoter(uid);
                 (status == 1) ? printf("Successfully Deleted ID#%d\n", uid) : printf("ID#%d Not Found\n", uid);
+                system("pause");
                 break;
             case 3:
                 listVoter();
@@ -64,6 +66,7 @@ void login() {
                 break;
             default:
                 puts("Invalid Input");
+                system("pause");
         }
     } else {
         checkLogin(id, pass);
@@ -96,7 +99,7 @@ void checkLogin(int id, int pin) {
 
 
 void insertVoter() {
-    system("clear"); // system("cls") in windows
+    system("cls"); // system("cls") in windows
     int id, pin, choice;
     FILE* file = fopen("database.txt", "a");
 
@@ -215,6 +218,7 @@ void vote() {
     }
     fclose(file);
     fclose(fp);
+    system("cls");
 
     login();
 }
@@ -230,9 +234,11 @@ void endVote() {
         i++;
     }
     fclose(fp);
+    system("cls");
     if(B[0] > B[1]) printf("Participant A won\n\n");
     else if(B[0] < B[1]) printf("Participant B won\n\n");
     else printf("Draw\n\n");
+    system("pause");
     clearDatabase();
     clearVote();
     clearData();
