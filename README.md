@@ -8,9 +8,9 @@ This is a voting application written in C.
 
 <strong>License:</strong> GPL-3.0 ( https://www.gnu.org/licenses/gpl-3.0.txt )
 
-<strong>Copyright:</strong> Shaman Sharif, Student of Northern University, hereby
-                disclaims all copyright interest in the program
-                " voteManCLI " written by Shaman Sharif.
+<strong>Copyright:</strong> Shaman Sharif, Student of Northern University 
+				Bangladesh, hereby disclaims all copyright interest in the 
+				program "voteManCLI" written by Shaman Sharif.
 
 <br>
 
