@@ -10,7 +10,7 @@ This is a voting application written in C.
 
 <strong>Copyright:</strong> Shaman Sharif, Student of Northern University, hereby
                 disclaims all copyright interest in the program
-                voteManCLI written by Shaman Sharif.
+                " voteManCLI " written by Shaman Sharif.
 
 <br>
 
